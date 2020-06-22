@@ -29,7 +29,6 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("Aba criada!!!");
     _postBloc.obterPosts();
   }
 
