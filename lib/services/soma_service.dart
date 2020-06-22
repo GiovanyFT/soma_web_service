@@ -2,14 +2,10 @@
 
 import 'package:http/http.dart' as http;
 import 'package:somawebservice/services/api_response.dart';
-
 class SomaService{
-
   static Future<ApiResponse<String>> somar(String valor1, String valor2) async {
-
     try{
       var _url = "http://col.ifes.edu.br/giovany/soma.php";
-
       //var _url = "http://essapaginanaoexiste/giovany/soma.php";
 
       Map _params = {
@@ -24,10 +20,8 @@ class SomaService{
         return ApiResponse.ok(_response.body);
       else
         return ApiResponse.error("Status do erro emitido pelo servidor: ${_response.statusCode}");
-
     } on Exception catch (erro){
       return ApiResponse.error("Erro na conexão: ${erro.toString()}");
     }
   }
-
 }

@@ -17,7 +17,6 @@ class _TabSomaState extends State<TabSoma> {
 
   String _resultado = "";
 
-
   bool _mostrarProgress = false;
 
   @override
@@ -57,7 +56,8 @@ class _TabSomaState extends State<TabSoma> {
                     _mostrarProgress = true;
                   });
 
-                  ApiResponse response = await SomaService.somar(_controladorValor1.text, _controladorValor2.text);
+                  ApiResponse response = await SomaService.somar(_controladorValor1.text,
+                      _controladorValor2.text);
 
                   setState(() {
                     _mostrarProgress = false;
