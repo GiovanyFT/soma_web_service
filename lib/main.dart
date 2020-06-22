@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:somawebservice/services/soma_service.dart';
 import 'package:somawebservice/tabs/tab_cep.dart';
 import 'package:somawebservice/tabs/tab_posts.dart';
 import 'package:somawebservice/tabs/tab_posts2.dart';
 import 'package:somawebservice/tabs/tab_soma.dart';
-import 'package:somawebservice/widget/botao_azul.dart';
-import 'package:somawebservice/widget/campo_edicao_double.dart';
 
 void main() => runApp(MyApp());
 

@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:somawebservice/domain/post.dart';
 import 'package:somawebservice/domain/post_bloc.dart';
 import 'package:somawebservice/services/api_response.dart';
-import 'package:somawebservice/services/posts_service.dart';
 import 'package:somawebservice/tabs/localwidget/listview_post_card.dart';
-import 'package:somawebservice/util/caixa_alerta.dart';
-import 'package:somawebservice/widget/botao_azul.dart';
 
-import 'localwidget/post_card.dart';
+
+
 
 class TabPosts2 extends StatefulWidget {
   @override
@@ -19,22 +17,20 @@ class TabPosts2 extends StatefulWidget {
 // Esse "with AutomaticKeepAliveClientMixin<TabPosts2>" vai ser usado para não recarregar
 // os dados dessa aba
 class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixin<TabPosts2>{
-
-  // Usando o padrão Bloc da Google para trabalhar com Streams
-  final _postBloc = PostBloc();
-
-  // Mantém a aba ativa para não novo carregamento dos dados
+  // Mantém a aba ativa para não recarregamento dos dados
   @override
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
+
+  // Usando o padrão Bloc da Google para trabalhar com Streams
+  final _postBloc = PostBloc();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
+    print("Aba criada!!!");
     _postBloc.obterPosts();
-
   }
 
   @override
