@@ -33,8 +33,6 @@ class HomePage extends StatefulWidget {
 // Esse "with SingleTickerProviderStateMixin<HomePage>" vai ser usado para não recarregar
 // os dados da aba "Sem botão"
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin<HomePage>{
-  BuildContext scaffold_context;
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -54,12 +52,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               ],
             ),
           ),
-          // A criação de um Builder é para armazenarmos um context
-          // do Scaffold. O SnackBar, por exemplo, precisa de um context
-          // que tenha sido definido dentro do Scaffold (não pode ser o do parämetro
-          // do método Widget build(BuildContext context)
           body: Builder(builder: (context) {
-            scaffold_context = context;
             return TabBarView(
               children: <Widget>[
                 TabSoma(),
