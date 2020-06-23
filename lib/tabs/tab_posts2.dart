@@ -1,13 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:somawebservice/domain/post.dart';
 import 'package:somawebservice/domain/post_bloc.dart';
 import 'package:somawebservice/services/api_response.dart';
 import 'package:somawebservice/tabs/localwidget/listview_post_card.dart';
-
-
-
 
 class TabPosts2 extends StatefulWidget {
   @override

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:somawebservice/services/api_response.dart';
 import 'package:somawebservice/widget/botao_azul.dart';
@@ -51,18 +50,13 @@ class _BotaoAzulServicoWebState extends State<BotaoAzulServicoWeb> {
       builder: (context, snapshot){
         return BotaoAzul(
           texto: widget.texto,
-          // Vai ter valor true antes do serviço e valor false
-          // inicialmente (initialData) e depois do serviço
           mostrar_progress: snapshot.data,
           ao_clicar: () async {
-
             if (widget.pre_servico != null){
-              // Se não conseguiu validar o que era necessário antes do serviço
               if (!widget.pre_servico()){
                 return;
               }
             }
-
             // Vai colocar o progress visível
             _streamController.add(true);
 
