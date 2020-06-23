@@ -6,7 +6,6 @@ import 'package:somawebservice/services/api_response.dart';
 
 class CepService{
   static Future<ApiResponse<Endereco>> obterCep(String cep) async {
-
     try{
       var _url = "http://api.postmon.com.br/v1/cep/" + cep;
 
@@ -20,7 +19,6 @@ class CepService{
       }
       else
         return ApiResponse.error("Status do erro emitido pelo servidor: ${_response.statusCode}");
-
     } on Exception catch (erro){
       return  ApiResponse.error("Erro na conexão: ${erro.toString()}");
     }

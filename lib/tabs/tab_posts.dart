@@ -6,7 +6,6 @@ import 'package:somawebservice/tabs/localwidget/listview_post_card.dart';
 import 'package:somawebservice/util/caixa_alerta.dart';
 import 'package:somawebservice/widget/botao_azul_servico_web.dart';
 
-import 'localwidget/post_card.dart';
 
 class TabPosts extends StatefulWidget {
   @override

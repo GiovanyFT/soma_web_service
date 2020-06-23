@@ -71,7 +71,6 @@ class _TabCepState extends State<TabCep> {
                       _logradouro = "";
                       _estado = "";
                       CaixaAlerta.mostrarToast(response.msg);
-
                     }
                   });
                 }),
