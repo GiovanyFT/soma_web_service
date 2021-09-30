@@ -11,11 +11,6 @@ class PostsService{
 
       print("GET --> $_url");
 
-      // This example uses the Google Books API to search for books about http.
-      // https://developers.google.com/books/docs/overview
-    //  var url =
-   //   Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'})
-
       final _myUri = Uri.parse(_url);
       var _response = await http.get(_myUri);
 
