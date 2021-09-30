@@ -9,7 +9,8 @@ class CepService{
     try{
       var _url = "http://api.postmon.com.br/v1/cep/" + cep;
 
-      var _response = await http.get(_url);
+      final _myUri = Uri.parse(_url);
+      var _response = await http.get(_myUri);
 
       // Solicitação feita com sucesso
       if(_response.statusCode == 200){

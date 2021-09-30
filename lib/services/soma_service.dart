@@ -13,7 +13,8 @@ class SomaService{
         'numero2' : valor2,
       };
 
-      var _response = await http.post(_url, body: _params);
+      final _myUri = Uri.parse(_url);
+      var _response = await http.post(_myUri, body: _params);
 
       // Solicitação feita com sucesso
       if(_response.statusCode == 200)
