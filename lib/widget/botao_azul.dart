@@ -21,8 +21,12 @@ class BotaoAzul extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 200,
-      child: RaisedButton(
-        color: Colors.blue,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: Colors.blue,
+          shape: RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(10.0)),
+        ),
         child: mostrar_progress
             ? Center(
                 child: CircularProgressIndicator(
@@ -32,10 +36,6 @@ class BotaoAzul extends StatelessWidget {
             : Text(texto,
                 style: TextStyle(color: cor_fonte, fontSize: tamanho_fonte)),
         onPressed: ao_clicar,
-        shape: RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(10.0),
-          //      side: BorderSide(color: Colors.white)
-        ),
         focusNode: marcador_foco,
       ),
     );
