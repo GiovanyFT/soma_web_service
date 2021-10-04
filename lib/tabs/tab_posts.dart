@@ -13,7 +13,7 @@ class TabPosts extends StatefulWidget {
 }
 
 class _TabPostsState extends State<TabPosts> {
-  List<Post> _lista_posts = List<Post>();
+  List<Post> _lista_posts = <Post>[]; // List<Post>();
 
   @override
   Widget build(BuildContext context) {
