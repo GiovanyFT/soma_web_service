@@ -65,9 +65,6 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
         // RefreshIndicator é um widget para atualizar a lista de posts
         // deslizando o dedo para baixo
         return RefreshIndicator(
-            // Ele obriga um método que retorna um Future para garantir
-            // que está sendo chamado um método assíncrono para atualizar
-            // o Stream, mas ele não usa esse retorno
             onRefresh: _postBloc.obterPosts,
             // Aqui temos a lista de posts sendo informada para o ListView
             child: ListViewPostCard(apiResponse.resultado)
