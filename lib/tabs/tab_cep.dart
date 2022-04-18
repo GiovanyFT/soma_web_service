@@ -59,7 +59,10 @@ class _TabCepState extends State<TabCep> {
                     _mostrarProgress = false;
                     if (response.ok) {
                       Endereco endereco = response.resultado;
-                      _complemento = endereco.complemento;
+                      if(endereco.complemento != null)
+                          _complemento = endereco.complemento;
+                      else
+                          _complemento = "Não tem complemento";
                       _bairro = endereco.bairro;
                       _cidade = endereco.cidade;
                       _logradouro = endereco.logradouro;
