@@ -1,17 +1,20 @@
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:ftoast/ftoast.dart';
 import 'package:flutter/material.dart';
 
 class CaixaAlerta {
 
-  static void mostrarToast(String msg) {
-    Fluttertoast.showToast(
-        msg: "$msg",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 5,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0);
+  static void mostrarToast(BuildContext context, String msg) {
+    FToast.toast(
+      context,
+      msg: msg,
+      color: Colors.red ,
+      duration: 5000,
+      msgStyle: TextStyle(
+        color: Colors.white,
+        fontSize: 16.0,
+      ),
+
+    );
   }
 
   static void mostrarMensagemErro(context, msg) {
@@ -24,7 +27,7 @@ class CaixaAlerta {
           content: new Text(msg),
           actions: <Widget>[
             // define os botões na base do dialogo
-            new FlatButton(
+            new TextButton(
               child: new Text("Fechar"),
               onPressed: () {
                 Navigator.of(context).pop();

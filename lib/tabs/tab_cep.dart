@@ -5,7 +5,7 @@ import 'package:somawebservice/services/cep_service.dart';
 import 'package:somawebservice/util/caixa_alerta.dart';
 import 'package:somawebservice/widget/botao_azul.dart';
 import 'package:somawebservice/widget/campo_edicao_double.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 
 class TabCep extends StatefulWidget {
   @override
@@ -73,7 +73,7 @@ class _TabCepState extends State<TabCep> {
                       _cidade = "";
                       _logradouro = "";
                       _estado = "";
-                      CaixaAlerta.mostrarToast(response.msg);
+                      CaixaAlerta.mostrarToast(context, response.msg);
                     }
                   });
                 }),
