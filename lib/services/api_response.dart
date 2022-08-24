@@ -1,7 +1,7 @@
 class ApiResponse<T>{
-  bool ok;
-  String msg;
-  T resultado = null;
+  bool? ok;
+  String? msg;
+  T? resultado = null;
 
   ApiResponse.ok(this.resultado){
     ok = true;

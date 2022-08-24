@@ -61,7 +61,7 @@ class _TabSomaState extends State<TabSoma> {
 
                   setState(() {
                     _mostrarProgress = false;
-                    if(response.ok)
+                    if(response.ok!)
                       _resultado = response.resultado;
                     else{
                       CaixaAlerta.mostrarMensagemErro(context, response.msg);
@@ -85,6 +85,6 @@ class _TabSomaState extends State<TabSoma> {
           ),
         ],
       ),
-    );;
+    );
   }
 }

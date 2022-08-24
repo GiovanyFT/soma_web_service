@@ -57,23 +57,23 @@ class _TabCepState extends State<TabCep> {
 
                   setState(() {
                     _mostrarProgress = false;
-                    if (response.ok) {
+                    if (response.ok!) {
                       Endereco endereco = response.resultado;
                       if(endereco.complemento != null)
-                          _complemento = endereco.complemento;
+                          _complemento = endereco.complemento!;
                       else
                           _complemento = "Não tem complemento";
-                      _bairro = endereco.bairro;
-                      _cidade = endereco.cidade;
-                      _logradouro = endereco.logradouro;
-                      _estado = endereco.estado;
+                      _bairro = endereco.bairro!;
+                      _cidade = endereco.cidade!;
+                      _logradouro = endereco.logradouro!;
+                      _estado = endereco.estado!;
                     } else {
                       _complemento = "";
                       _bairro = "";
                       _cidade = "";
                       _logradouro = "";
                       _estado = "";
-                      CaixaAlerta.mostrarToast(context, response.msg);
+                      CaixaAlerta.mostrarToast(context, response.msg!);
                     }
                   });
                 }),

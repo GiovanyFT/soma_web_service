@@ -1,9 +1,9 @@
 class Endereco {
-  String complemento;
-  String bairro;
-  String cidade;
-  String logradouro;
-  String estado;
+  String? complemento;
+  String? bairro;
+  String? cidade;
+  String? logradouro;
+  String? estado;
 
   Endereco.fromJson(Map<String, dynamic> map){
     complemento = map["complemento"];

@@ -14,7 +14,7 @@ class CepService{
 
       // Solicitação feita com sucesso
       if(_response.statusCode == 200){
-        Map mapResponse = json.decode(_response.body);
+        Map<String, dynamic> mapResponse = json.decode(_response.body);
         Endereco endereco = Endereco.fromJson(mapResponse);
         return ApiResponse.ok(endereco);
       }

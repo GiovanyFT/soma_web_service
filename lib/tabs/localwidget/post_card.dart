@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PostCard extends StatelessWidget {
-  String userId;
-  String id;
-  String title;
-  String body;
+  String? userId;
+  String? id;
+  String? title;
+  String? body;
 
 
   PostCard({this.userId, this.id, this.title, this.body});

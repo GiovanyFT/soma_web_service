@@ -5,19 +5,19 @@ import 'package:somawebservice/widget/botao_azul.dart';
 
 class BotaoAzulServicoWeb extends StatefulWidget {
   String texto;
-  double tamanho_fonte;
-  Color cor_fonte;
-  Function pre_servico;
-  Function acionar_servico;
-  Function(ApiResponse response) pos_servico;
-  FocusNode marcador_foco;
+  double? tamanho_fonte;
+  Color? cor_fonte;
+  bool Function()? pre_servico;
+  Future<ApiResponse> Function() acionar_servico;
+  Function(ApiResponse response)? pos_servico;
+  FocusNode? marcador_foco;
 
   BotaoAzulServicoWeb(
-      {this.texto,
+      {this.texto = "",
       this.tamanho_fonte,
       this.cor_fonte,
       this.pre_servico = null,
-      this.acionar_servico,
+      required this.acionar_servico,
       this.pos_servico = null,
       this.marcador_foco});
 
@@ -50,10 +50,13 @@ class _BotaoAzulServicoWebState extends State<BotaoAzulServicoWeb> {
       builder: (context, snapshot){
         return BotaoAzul(
           texto: widget.texto,
-          mostrar_progress: snapshot.data,
+          mostrar_progress: snapshot.data!,
           ao_clicar: () async {
-            if (widget.pre_servico != null){
-              if (!widget.pre_servico()){
+            if (widget.pre_servico == null) return null;
+            else {
+              // Se pre_servico retorna false simplemente retorna (não aciona
+              // o serviço)
+              if (!(widget.pre_servico!())){
                 return;
               }
             }
@@ -67,7 +70,7 @@ class _BotaoAzulServicoWebState extends State<BotaoAzulServicoWeb> {
             _streamController.add(false);
 
             // Vai atualizar a tela com os resultados obtidos no serviço
-            widget.pos_servico(response);
+            widget.pos_servico!(response);
           },
         );
       },

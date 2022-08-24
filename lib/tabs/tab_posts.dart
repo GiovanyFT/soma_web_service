@@ -30,16 +30,15 @@ class _TabPostsState extends State<TabPosts> {
                 return true;
                 // return _formkey.currentState.validade();
               },
-              acionar_servico: (){
-                return PostsService.obterPosts();
-              },
+              // Chamando o serviço de obtenção de Posts
+              acionar_servico: PostsService.obterPosts,
               // Chamado para atualizar a tab depois do serviço
               // A animação do botão é tratada pelo próprio BotaoAzulServicoWeb
               // Mas para que a listagem seja atualizada e o método build seja
               // chamado é necessário usar o setState()
               pos_servico: (ApiResponse response){
                 setState(() {
-                  if (response.ok)
+                  if (response.ok!)
                     _lista_posts = response.resultado;
                   else {
                     CaixaAlerta.mostrarMensagemErro(context, response.msg);
