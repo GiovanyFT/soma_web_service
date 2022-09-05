@@ -25,7 +25,7 @@ class _TabPostsState extends State<TabPosts> {
             flex: 1,
             child: BotaoAzulServicoWeb(
               texto: "Obter Post Cards",
-              // Arqui poderíamos ter a validação de um formulário, por exemplo
+              // Aqui poderíamos ter a validação de um formulário, por exemplo
               pre_servico: (){
                 return true;
                 // return _formkey.currentState.validade();
