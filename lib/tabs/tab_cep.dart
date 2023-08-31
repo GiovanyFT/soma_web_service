@@ -64,9 +64,9 @@ class _TabCepState extends State<TabCep> {
                       else
                           _complemento = "Não tem complemento";
                       _bairro = endereco.bairro!;
-                      _cidade = endereco.cidade!;
+                      _cidade = endereco.localidade!;
                       _logradouro = endereco.logradouro!;
-                      _estado = endereco.estado!;
+                      _estado = endereco.uf!;
                     } else {
                       _complemento = "";
                       _bairro = "";

@@ -7,7 +7,8 @@ import 'package:somawebservice/services/api_response.dart';
 class CepService{
   static Future<ApiResponse<Endereco>> obterCep(String cep) async {
     try{
-      var _url = "http://api.postmon.com.br/v1/cep/" + cep;
+     // var _url = "http://api.postmon.com.br/v1/cep/" + cep;
+      var _url = "https://viacep.com.br/ws/$cep/json/";
 
       final _myUri = Uri.parse(_url);
       var _response = await http.get(_myUri);

@@ -1,28 +1,28 @@
 class Endereco {
   String? complemento;
   String? bairro;
-  String? cidade;
+  String? localidade;
   String? logradouro;
-  String? estado;
+  String? uf;
 
   Endereco.fromJson(Map<String, dynamic> map){
     complemento = map["complemento"];
     bairro = map["bairro"];
-    cidade = map["cidade"];
+    localidade = map["localidade"];
     logradouro = map["logradouro"];
-    estado = map["estado"];
+    uf = map["uf"];
   }
 
   Endereco({this.complemento,
             this.bairro,
-            this.cidade,
+            this.localidade,
             this.logradouro,
-            this.estado});
+            this.uf});
 
   @override
   String toString() {
     return 'Endereco{complemento: $complemento, '
-        'bairro: $bairro, cidade: $cidade, '
-        'logradouro: $logradouro, estado: $estado}';
+        'bairro: $bairro, cidade: $localidade, '
+        'logradouro: $logradouro, estado: $uf}';
   }
 }
