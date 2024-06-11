@@ -48,13 +48,13 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
           );
         }
 
-        RespostaServico apiResponse = snapshot.data!;
+        RespostaServico resposta = snapshot.data!;
 
         // Se houve algum erro
-        if (!(apiResponse.sucesso))
+        if (!(resposta.sucesso))
           return Center(
             child: Text(
-              apiResponse.mensagemErro!,
+              resposta.mensagemErro!,
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 22,
@@ -66,7 +66,7 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
         return RefreshIndicator(
             onRefresh: _postBloc.obterPosts,
             // Aqui temos a lista de posts sendo informada para o ListView
-            child: ListViewPostCard(apiResponse.resultado)
+            child: ListViewPostCard(resposta.resultado)
         );
       },
     );

@@ -36,12 +36,12 @@ class _TabPostsState extends State<TabPosts> {
               // A animação do botão é tratada pelo próprio BotaoAzulServicoWeb
               // Mas para que a listagem seja atualizada e o método build seja
               // chamado é necessário usar o setState()
-              pos_servico: (RespostaServico response){
+              pos_servico: (RespostaServico resposta){
                 setState(() {
-                  if (response.sucesso)
-                    _lista_posts = response.resultado;
+                  if (resposta.sucesso)
+                    _lista_posts = resposta.resultado;
                   else {
-                    CaixaAlerta.mostrarMensagemErro(context, response.mensagemErro);
+                    CaixaAlerta.mostrarMensagemErro(context, resposta.mensagemErro);
                   }
                 });
               },
