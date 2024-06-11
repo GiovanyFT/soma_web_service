@@ -1,5 +1,5 @@
 class RespostaServico<R>{
-  bool get sucesso => ((resultado != null) && (mensagemErro == null));
+  bool get sucesso => mensagemErro == null;
   String? mensagemErro = null;
   R? resultado = null;
 
