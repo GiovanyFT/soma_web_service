@@ -52,13 +52,13 @@ class _TabCepState extends State<TabCep> {
                     _mostrarProgress = true;
                   });
 
-                  RespostaServico response =
+                  RespostaServico resposta =
                       await CepService.obterCep(_controladorCep.text);
 
                   setState(() {
                     _mostrarProgress = false;
-                    if (response.sucesso) {
-                      Endereco endereco = response.resultado;
+                    if (resposta.sucesso) {
+                      Endereco endereco = resposta.resultado;
                       if(endereco.complemento != null)
                           _complemento = endereco.complemento!;
                       else
@@ -73,7 +73,7 @@ class _TabCepState extends State<TabCep> {
                       _cidade = "";
                       _logradouro = "";
                       _estado = "";
-                      CaixaAlerta.mostrarToast(context, response.mensagemErro!);
+                      CaixaAlerta.mostrarToast(context, resposta.mensagemErro!);
                     }
                   });
                 }),
