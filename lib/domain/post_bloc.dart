@@ -6,8 +6,8 @@ import 'package:somawebservice/util/simple_bloc.dart';
 class PostBloc extends SimpleBloc<RespostaServico>{
   Future<RespostaServico<List<Post>>> obterPosts() async{
     // Obtendo os posts
-    RespostaServico<List<Post>> response = await PostsService.obterPosts();
-    this.add(response);
-    return response;
+    RespostaServico<List<Post>> resposta = await PostsService.obterPosts();
+    this.add(resposta);
+    return resposta;
   }
 }
