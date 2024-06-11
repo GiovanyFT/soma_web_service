@@ -65,6 +65,7 @@ class _TabSomaState extends State<TabSoma> {
                       _resultado = response.resultado;
                     else{
                       CaixaAlerta.mostrarMensagemErro(context, response.mensagemErro);
+                      _resultado = "";
                     }
                   });
                 }
