@@ -56,15 +56,15 @@ class _TabSomaState extends State<TabSoma> {
                     _mostrarProgress = true;
                   });
 
-                  RespostaServico response = await SomaService.somar(_controladorValor1.text,
+                  RespostaServico resposta = await SomaService.somar(_controladorValor1.text,
                       _controladorValor2.text);
 
                   setState(() {
                     _mostrarProgress = false;
-                    if(response.sucesso)
-                      _resultado = response.resultado;
+                    if(resposta.sucesso)
+                      _resultado = resposta.resultado;
                     else{
-                      CaixaAlerta.mostrarMensagemErro(context, response.mensagemErro);
+                      CaixaAlerta.mostrarMensagemErro(context, resposta.mensagemErro);
                       _resultado = "";
                     }
                   });
