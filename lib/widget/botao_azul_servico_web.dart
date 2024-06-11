@@ -9,7 +9,7 @@ class BotaoAzulServicoWeb extends StatefulWidget {
   final Color? cor_fonte;
   final bool Function()? pre_servico;
   final Future<RespostaServico> Function() acionar_servico;
-  final Function(RespostaServico response)? pos_servico;
+  final Function(RespostaServico resposta)? pos_servico;
   final FocusNode? marcador_foco;
 
   BotaoAzulServicoWeb(
