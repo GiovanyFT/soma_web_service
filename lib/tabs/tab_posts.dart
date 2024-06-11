@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:somawebservice/domain/post.dart';
-import 'package:somawebservice/services/api_response.dart';
+import 'package:somawebservice/services/resposta_servico.dart';
 import 'package:somawebservice/services/posts_service.dart';
 import 'package:somawebservice/tabs/localwidget/listview_post_card.dart';
 import 'package:somawebservice/util/caixa_alerta.dart';
@@ -36,12 +36,12 @@ class _TabPostsState extends State<TabPosts> {
               // A animação do botão é tratada pelo próprio BotaoAzulServicoWeb
               // Mas para que a listagem seja atualizada e o método build seja
               // chamado é necessário usar o setState()
-              pos_servico: (ApiResponse response){
+              pos_servico: (RespostaServico response){
                 setState(() {
-                  if (response.ok!)
+                  if (response.sucesso)
                     _lista_posts = response.resultado;
                   else {
-                    CaixaAlerta.mostrarMensagemErro(context, response.msg);
+                    CaixaAlerta.mostrarMensagemErro(context, response.mensagemErro);
                   }
                 });
               },

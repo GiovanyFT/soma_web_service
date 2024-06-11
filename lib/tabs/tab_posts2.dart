@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:somawebservice/domain/post_bloc.dart';
-import 'package:somawebservice/services/api_response.dart';
+import 'package:somawebservice/services/resposta_servico.dart';
 import 'package:somawebservice/tabs/localwidget/listview_post_card.dart';
 
 class TabPosts2 extends StatefulWidget {
@@ -38,7 +38,7 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
     // Não pode esquecer dessa linha para não acontecer o recarregamento
     super.build(context);
 
-    return StreamBuilder<ApiResponse>(
+    return StreamBuilder<RespostaServico>(
       stream: _postBloc.stream,
       builder: (context, snapshot) {
         // Vai colocar um progress enquanto os posts não forem carregados
@@ -48,13 +48,13 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
           );
         }
 
-        ApiResponse apiResponse = snapshot.data!;
+        RespostaServico apiResponse = snapshot.data!;
 
         // Se houve algum erro
-        if (!(apiResponse.ok!))
+        if (!(apiResponse.sucesso))
           return Center(
             child: Text(
-              apiResponse.msg!,
+              apiResponse.mensagemErro!,
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 22,

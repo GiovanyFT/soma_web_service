@@ -2,10 +2,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:somawebservice/domain/endereco.dart';
-import 'package:somawebservice/services/api_response.dart';
+import 'package:somawebservice/services/resposta_servico.dart';
 
 class CepService{
-  static Future<ApiResponse<Endereco>> obterCep(String cep) async {
+  static Future<RespostaServico<Endereco>> obterCep(String cep) async {
     try{
      // var _url = "http://api.postmon.com.br/v1/cep/" + cep;
       var _url = "https://viacep.com.br/ws/$cep/json/";
@@ -17,12 +17,12 @@ class CepService{
       if(_response.statusCode == 200){
         Map<String, dynamic> mapResponse = json.decode(_response.body);
         Endereco endereco = Endereco.fromJson(mapResponse);
-        return ApiResponse.ok(endereco);
+        return RespostaServico(endereco);
       }
       else
-        return ApiResponse.error("Status do erro emitido pelo servidor: ${_response.statusCode}");
+        return RespostaServico.erro("Status do erro emitido pelo servidor: ${_response.statusCode}");
     } on Exception catch (erro){
-      return  ApiResponse.error("Erro na conexão: ${erro.toString()}");
+      return  RespostaServico.erro("Erro na conexão: ${erro.toString()}");
     }
   }
 }

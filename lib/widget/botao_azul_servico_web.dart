@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:somawebservice/services/api_response.dart';
+import 'package:somawebservice/services/resposta_servico.dart';
 import 'package:somawebservice/widget/botao_azul.dart';
 
 class BotaoAzulServicoWeb extends StatefulWidget {
-  String texto;
-  double? tamanho_fonte;
-  Color? cor_fonte;
-  bool Function()? pre_servico;
-  Future<ApiResponse> Function() acionar_servico;
-  Function(ApiResponse response)? pos_servico;
-  FocusNode? marcador_foco;
+  final String texto;
+  final double? tamanho_fonte;
+  final Color? cor_fonte;
+  final bool Function()? pre_servico;
+  final Future<RespostaServico> Function() acionar_servico;
+  final Function(RespostaServico response)? pos_servico;
+  final FocusNode? marcador_foco;
 
   BotaoAzulServicoWeb(
       {this.texto = "",
@@ -64,7 +64,7 @@ class _BotaoAzulServicoWebState extends State<BotaoAzulServicoWeb> {
             _streamController.add(true);
 
             // Aciona o serviço
-            ApiResponse response = await widget.acionar_servico();
+            RespostaServico response = await widget.acionar_servico();
 
             // Vai voltar com o texto para o botão
             _streamController.add(false);

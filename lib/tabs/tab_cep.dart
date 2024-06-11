@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:somawebservice/domain/endereco.dart';
-import 'package:somawebservice/services/api_response.dart';
+import 'package:somawebservice/services/resposta_servico.dart';
 import 'package:somawebservice/services/cep_service.dart';
 import 'package:somawebservice/util/caixa_alerta.dart';
 import 'package:somawebservice/widget/botao_azul.dart';
@@ -52,12 +52,12 @@ class _TabCepState extends State<TabCep> {
                     _mostrarProgress = true;
                   });
 
-                  ApiResponse response =
+                  RespostaServico response =
                       await CepService.obterCep(_controladorCep.text);
 
                   setState(() {
                     _mostrarProgress = false;
-                    if (response.ok!) {
+                    if (response.sucesso) {
                       Endereco endereco = response.resultado;
                       if(endereco.complemento != null)
                           _complemento = endereco.complemento!;
@@ -73,7 +73,7 @@ class _TabCepState extends State<TabCep> {
                       _cidade = "";
                       _logradouro = "";
                       _estado = "";
-                      CaixaAlerta.mostrarToast(context, response.msg!);
+                      CaixaAlerta.mostrarToast(context, response.mensagemErro!);
                     }
                   });
                 }),

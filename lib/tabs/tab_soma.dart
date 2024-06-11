@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:somawebservice/services/api_response.dart';
+import 'package:somawebservice/services/resposta_servico.dart';
 import 'package:somawebservice/services/soma_service.dart';
 import 'package:somawebservice/util/caixa_alerta.dart';
 import 'package:somawebservice/widget/botao_azul.dart';
@@ -56,15 +56,15 @@ class _TabSomaState extends State<TabSoma> {
                     _mostrarProgress = true;
                   });
 
-                  ApiResponse response = await SomaService.somar(_controladorValor1.text,
+                  RespostaServico response = await SomaService.somar(_controladorValor1.text,
                       _controladorValor2.text);
 
                   setState(() {
                     _mostrarProgress = false;
-                    if(response.ok!)
+                    if(response.sucesso)
                       _resultado = response.resultado;
                     else{
-                      CaixaAlerta.mostrarMensagemErro(context, response.msg);
+                      CaixaAlerta.mostrarMensagemErro(context, response.mensagemErro);
                     }
                   });
                 }
