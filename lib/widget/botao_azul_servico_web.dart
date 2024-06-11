@@ -64,13 +64,13 @@ class _BotaoAzulServicoWebState extends State<BotaoAzulServicoWeb> {
             _streamController.add(true);
 
             // Aciona o serviço
-            RespostaServico response = await widget.acionar_servico();
+            RespostaServico resposta = await widget.acionar_servico();
 
             // Vai voltar com o texto para o botão
             _streamController.add(false);
 
             // Vai atualizar a tela com os resultados obtidos no serviço
-            widget.pos_servico!(response);
+            widget.pos_servico!(resposta);
           },
         );
       },
