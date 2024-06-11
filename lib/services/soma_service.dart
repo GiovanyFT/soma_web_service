@@ -1,9 +1,7 @@
-
-
 import 'dart:async';
-
 import 'package:http/http.dart' as http;
 import 'package:somawebservice/services/resposta_servico.dart';
+
 class SomaService{
   static Future<RespostaServico<String>> somar(String valor1, String valor2) async {
     try{
