@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:somawebservice/domain/post_bloc.dart';
 import 'package:somawebservice/services/resposta_servico.dart';
 import 'package:somawebservice/tabs/localwidget/listview_post_card.dart';
+import 'controle_interacao/controle_stream_tab_posts2.dart';
+
 
 class TabPosts2 extends StatefulWidget {
   @override
@@ -16,21 +17,21 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 
-  // Usando o padrão Bloc da Google para trabalhar com Streams
-  final _postBloc = PostBloc();
+  // Controlador não visual para atuar com StreamBuilder
+  final _controleStreamBuilder = ControleStreamTabPosts2();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _postBloc.obterPosts();
+    _controleStreamBuilder.obterPosts();
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _postBloc.dispose();
+    _controleStreamBuilder.dispose();
   }
 
   @override
@@ -39,7 +40,7 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
     super.build(context);
 
     return StreamBuilder<RespostaServico>(
-      stream: _postBloc.stream,
+      stream: _controleStreamBuilder.fluxo,
       builder: (context, snapshot) {
         // Vai colocar um progress enquanto os posts não forem carregados
         if (!snapshot.hasData) {
@@ -64,7 +65,7 @@ class _TabPostsState2 extends State<TabPosts2> with AutomaticKeepAliveClientMixi
         // RefreshIndicator é um widget para atualizar a lista de posts
         // deslizando o dedo para baixo
         return RefreshIndicator(
-            onRefresh: _postBloc.obterPosts,
+            onRefresh: _controleStreamBuilder.obterPosts,
             // Aqui temos a lista de posts sendo informada para o ListView
             child: ListViewPostCard(resposta.resultado)
         );
