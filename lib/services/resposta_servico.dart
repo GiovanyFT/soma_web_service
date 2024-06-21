@@ -4,5 +4,5 @@ class RespostaServico<R>{
   R? resultado = null;
 
   RespostaServico(this.resultado);
-  RespostaServico.erro(this.mensagemErro);
+  RespostaServico.erro(String this.mensagemErro);
 }
