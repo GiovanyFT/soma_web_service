@@ -16,11 +16,14 @@ class CepService{
       // Solicitação feita com sucesso
       if(_response.statusCode == 200){
         Map<String, dynamic> mapResponse = json.decode(_response.body);
-        Endereco endereco = Endereco.fromJson(mapResponse);
+
         if ( (mapResponse["erro"] != null) && (mapResponse["erro"] == "true") )
           return RespostaServico.erro("Cep Inválido!!!");
-        else
+        else{
+          Endereco endereco = Endereco.fromJson(mapResponse);
           return RespostaServico(endereco);
+        }
+
       }
       else
         return RespostaServico.erro("Status do erro emitido pelo servidor: ${_response.statusCode}");
